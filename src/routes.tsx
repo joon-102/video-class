@@ -1,13 +1,13 @@
-import React from 'react-router-dom';
+import { RouteObject, createBrowserRouter } from 'react-router-dom';
 
 import Main from './pages/Main';
 import NotFound from './pages/NotFound';
 
-const routes: React.RouteObject[] = [
+const routes: RouteObject[] = [
   { path: '/', element: <Main /> },
   { path: '*', element: <NotFound /> }
 ];
 
-const router = React.createBrowserRouter(routes);
+const router = createBrowserRouter(routes);
 
 export default router;

@@ -1,7 +1,9 @@
 function Main(){
   return (
     <>
-    hi
+    <div>
+      ddd
+    </div>
     </>
   )
 }
