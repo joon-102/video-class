@@ -1,18 +1,11 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import './App.css'
+import { RouterProvider } from 'react-router-dom';
 
-import Main from './components/Main';
-import NotFound from './components/NotFound';
+import './App.css'
+import './assets/fonts/font.css'
+import router from './routes';
 
 function App() {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Main />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </BrowserRouter>
-  )
+  return <RouterProvider router={router} />;
 }
 
-export default App
+export default App;
