@@ -1,4 +1,4 @@
-import { GlobalStyles, CssBaseline, Box, Link, Typography, Button, Stack } from '@mui/joy';
+import { GlobalStyles, CssBaseline, Box, Link, Typography, Button, Stack, Divider } from '@mui/joy';
 import { DarkModeRounded, KeyboardArrowRight, LightModeRounded } from '@mui/icons-material';
 import IconButton, { IconButtonProps } from '@mui/joy/IconButton';
 import { CssVarsProvider, useColorScheme } from '@mui/joy/styles';
@@ -65,6 +65,8 @@ export default function Main() {
 
             </Box>
           </Box>
+
+          <Divider sx={(theme) => ({ [theme.getColorSchemeSelector('light')]: { color: { xs: '#FFF', md: 'text.tertiary' } } })} />
 
           <Box component="main" sx={{ my: 'auto', display: 'flex', flexDirection: 'column', gap: 2,  maxWidth: '100%', mx: 'auto', borderRadius: 'sm' }}>
             <Stack gap={4} sx={{ mt: 1 }}>

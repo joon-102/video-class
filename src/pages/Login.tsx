@@ -107,6 +107,7 @@ export default function Login() {
             </Box>
             <ColorSchemeToggle />
           </Box>
+          <Divider sx={(theme) => ({ [theme.getColorSchemeSelector('light')]: { color: { xs: '#FFF', md: 'text.tertiary' } } })} />
           <Box component="main" sx={{ my: 'auto', py: 2, pb: 5, display: 'flex', flexDirection: 'column', gap: 2, width: 400, maxWidth: '100%', mx: 'auto', borderRadius: 'sm', '& form': { display: 'flex', flexDirection: 'column', gap: 2, }, [`& .MuiFormLabel-asterisk`]: { visibility: 'hidden', }, }}>
             <Stack gap={4} sx={{ mb: 1.2 }}>
               <Stack gap={1}>
