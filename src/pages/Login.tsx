@@ -52,7 +52,7 @@ export default function Login() {
 
     try {
       const Request: any = await axios({
-        url: `${API_URL}/login`,
+        url: `/login`,
         method: "POST",
         withCredentials: true,
         data: {
@@ -82,7 +82,7 @@ export default function Login() {
   React.useEffect(() => {
     async function LoginCheck() {
       try {
-        const Request: any = await axios({ url: `${API_URL}/login/success`, method: "GET", withCredentials: true  })
+        const Request: any = await axios({ url: `/login/success`, method: "GET", withCredentials: true  })
 
         if (Request.status == 200) {
           window.open('/', '_self')
