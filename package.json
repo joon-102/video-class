@@ -1,6 +1,7 @@
 {
   "name": "video-class",
   "private": true,
+  "proxy": "https://video-class-api.vercel.app",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
