@@ -1,8 +1,9 @@
-import { GlobalStyles, CssBaseline, Box, Link, Typography, Button, Stack, Divider } from '@mui/joy';
-import { DarkModeRounded, KeyboardArrowRight, LightModeRounded } from '@mui/icons-material';
+import { GlobalStyles, CssBaseline, Box, Link, Typography, Button, Divider } from '@mui/joy';
+import { DarkModeRounded, KeyboardArrowRight, LightModeRounded   } from '@mui/icons-material';
 import IconButton, { IconButtonProps } from '@mui/joy/IconButton';
 import { CssVarsProvider, useColorScheme } from '@mui/joy/styles';
 
+import { Link as RouterLink } from 'react-router-dom';
 import * as React from 'react';
 import axios from "axios";
 
@@ -25,6 +26,21 @@ function ColorSchemeToggle(props: IconButtonProps) {
 export default function Main() {
   const [isLogin, setisLogin] = React.useState(false);
 
+  // async function LogoutSubmit() {
+  //   try {
+  //     const Request: any = await axios({
+  //       url: `${API_URL}/logout`,
+  //       method: "POST",
+  //       withCredentials: true,
+  //     });
+
+  //     if (Request.status === 200) {
+  //       window.open('/', '_self')
+  //     }
+  //   } catch (error) {
+  //     console.log("로그아웃 실패")
+  //   }
+  // }
 
   React.useEffect(() => {
     async function LoginCheck() {
@@ -41,7 +57,6 @@ export default function Main() {
     LoginCheck()
   }, [])
 
-
   return (
     <CssVarsProvider defaultMode="dark" disableTransitionOnChange >
       <CssBaseline />
@@ -53,36 +68,49 @@ export default function Main() {
           <Box component="header" sx={{ py: 3, display: 'flex', justifyContent: 'space-between' }} >
 
             <Box sx={{ gap: 2, display: 'flex', alignItems: 'center' }}>
-              <Typography level="title-lg"><Link href="/" underline="none" color="primary" >Video Class</Link></Typography>
+              <Typography level="title-lg"><Link to="/" level="h3" underline="none" color="primary" component={RouterLink} >Video Class</Link></Typography>
             </Box>
 
             <Box sx={{ gap: 1, display: 'flex', alignItems: 'center' }}>
               <ColorSchemeToggle size="sm" />
 
-              <Button size="sm" onClick={function () { window.open('/login', '_self') }} endDecorator={<KeyboardArrowRight />}>
-                시작 하기
-              </Button>
+              {isLogin ? (
+                <Button size="sm" onClick={function () { window.open('/dash', '_self') }} endDecorator={<KeyboardArrowRight />}>대시보드 가기</Button>
+              ) : (
+                <Button size="sm" onClick={function () { window.open('/login', '_self') }} endDecorator={<KeyboardArrowRight />}>시작 하기</Button>
+              )}
 
             </Box>
           </Box>
 
           <Divider sx={(theme) => ({ [theme.getColorSchemeSelector('light')]: { color: { xs: '#FFF', md: 'text.tertiary' } } })} />
 
-          <Box component="main" sx={{ my: 'auto', display: 'flex', flexDirection: 'column', gap: 2,  maxWidth: '100%', mx: 'auto', borderRadius: 'sm' }}>
-            <Stack gap={4} sx={{ mt: 1 }}>
-
-
-              {isLogin ? (
-                <div>
-                  <Typography level='h2'>로그인 성공</Typography>
-                </div>
-              ) : (
-                <div>
-                  <Typography level='h2'>로그인 하지 않음.</Typography>
-                </div>
-              )}
-
-            </Stack>
+   <Box
+            sx={{
+              flexGrow: 1,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center', // 수정된 부분: 왼쪽 정렬
+              textAlign: 'center',
+              mt: 6, // 수정된 부분: 위쪽 여백 추가
+            }}
+          >
+            <Box sx={{ maxWidth: '600px' }}>
+              <Typography  sx={{ mb: 1 }}  fontSize="clamp(1.875rem, 1.3636rem + 2.1818vw, 3rem)" fontWeight="lg" color="primary"  >
+                Video Class.
+              </Typography>
+              <Typography level="h4" sx={{ mb: 3 }}>
+                손위운 강의 공유 플랫폼.
+              </Typography>
+              <Button
+                size="lg"
+                onClick={() => window.open('/login', '_self')}
+                endDecorator={<KeyboardArrowRight />}
+              
+              >
+                시작하기
+              </Button>
+            </Box>
           </Box>
 
 
@@ -93,6 +121,6 @@ export default function Main() {
           </Box>
         </Box>
       </Box>
-    </CssVarsProvider>
+    </CssVarsProvider >
   )
 }

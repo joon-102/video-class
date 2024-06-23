@@ -29,7 +29,6 @@ export default function Login() {
   const [alertVisibleValue, setAlertVisibleValue] = React.useState('알 수 없는 오류가 발생했습니다');
   const [loginSuccessModalVisible, setLoginSuccessModalVisible] = React.useState(false);
 
-
   const { value: CountValue } = useCountUp({
     isCounting: loginSuccessModalVisible,
     duration: 0.8,
@@ -75,7 +74,6 @@ export default function Login() {
       } else if (error.response?.status == 429) {
         setAlertVisibleValue('요청이 너무 빈번합니다. 잠시 후 다시 시도해 주세요')
       }
-
     }
   }
 
@@ -103,7 +101,7 @@ export default function Login() {
           {/* 네이게이션 바 */}
           <Box component="header" sx={{ py: 3, display: 'flex', justifyContent: 'space-between' }} >
             <Box sx={{ gap: 2, display: 'flex', alignItems: 'center' }}>
-              <Typography level="title-lg"><Link to="/" underline="none" color="primary" component={RouterLink} >Video Class</Link></Typography>
+              <Typography level="title-lg"><Link to="/" level="h3" underline="none" color="primary" component={RouterLink} >Video Class</Link></Typography>
             </Box>
             <ColorSchemeToggle />
           </Box>
