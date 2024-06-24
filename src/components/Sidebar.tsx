@@ -18,6 +18,13 @@ import LogoutRoundedIcon from '@mui/icons-material/LogoutRounded';
 
 import ColorSchemeToggle from './ColorSchemeToggle';
 
+function closeSidebar() {
+    if (typeof window !== 'undefined') {
+      document.documentElement.style.removeProperty('--SideNavigation-slideIn');
+      document.body.style.removeProperty('overflow');
+    }
+}
+  
 
 export default function Sidebar() {
   return (
@@ -53,9 +60,27 @@ export default function Sidebar() {
           },
         })}
       />
- 
+      <Box
+        className="Sidebar-overlay"
+        sx={{
+          position: 'fixed',
+          zIndex: 9998,
+          top: 0,
+          left: 0,
+          width: '100vw',
+          height: '100vh',
+          opacity: 'var(--SideNavigation-slideIn)',
+          backgroundColor: 'var(--joy-palette-background-backdrop)',
+          transition: 'opacity 0.4s',
+          transform: {
+            xs: 'translateX(calc(100% * (var(--SideNavigation-slideIn, 0) - 1) + var(--SideNavigation-slideIn, 0) * var(--Sidebar-width, 0px)))',
+            lg: 'translateX(-100%)',
+          },
+        }}
+        onClick={() => closeSidebar()}
+      />
       <Box sx={{ display: 'flex', gap: 1, alignItems: 'center' }}>
-        <Typography level="title-lg" >Video Class.</Typography>
+        <Typography level="title-lg">Video Class.</Typography>
         <ColorSchemeToggle sx={{ ml: 'auto' }} />
       </Box>
     
