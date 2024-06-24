@@ -1,5 +1,5 @@
 import { GlobalStyles, CssBaseline, Box, Link, Typography, Button, Divider } from '@mui/joy';
-import { DarkModeRounded, KeyboardArrowRight, LightModeRounded   } from '@mui/icons-material';
+import { DarkModeRounded, KeyboardArrowRight, LightModeRounded } from '@mui/icons-material';
 import IconButton, { IconButtonProps } from '@mui/joy/IconButton';
 import { CssVarsProvider, useColorScheme } from '@mui/joy/styles';
 
@@ -75,7 +75,7 @@ export default function Main() {
               <ColorSchemeToggle size="sm" />
 
               {isLogin ? (
-                <Button size="sm" onClick={function () { window.open('/dash', '_self') }} endDecorator={<KeyboardArrowRight />}>대시보드 가기</Button>
+                <Button size="sm" onClick={function () { window.open('/dashboard', '_self') }} endDecorator={<KeyboardArrowRight />}>대시보드 가기</Button>
               ) : (
                 <Button size="sm" onClick={function () { window.open('/login', '_self') }} endDecorator={<KeyboardArrowRight />}>시작 하기</Button>
               )}
@@ -85,34 +85,13 @@ export default function Main() {
 
           <Divider sx={(theme) => ({ [theme.getColorSchemeSelector('light')]: { color: { xs: '#FFF', md: 'text.tertiary' } } })} />
 
-   <Box
-            sx={{
-              flexGrow: 1,
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center', // 수정된 부분: 왼쪽 정렬
-              textAlign: 'center',
-              mt: 6, // 수정된 부분: 위쪽 여백 추가
-            }}
-          >
+          <Box sx={{ flexGrow: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center', mt: 6, }}  >
             <Box sx={{ maxWidth: '600px' }}>
-              <Typography  sx={{ mb: 1 }}  fontSize="clamp(1.875rem, 1.3636rem + 2.1818vw, 3rem)" fontWeight="lg" color="primary"  >
-                Video Class.
-              </Typography>
-              <Typography level="h4" sx={{ mb: 3 }}>
-                손위운 강의 공유 플랫폼.
-              </Typography>
-              <Button
-                size="lg"
-                onClick={() => window.open('/login', '_self')}
-                endDecorator={<KeyboardArrowRight />}
-              
-              >
-                시작하기
-              </Button>
+              <Typography sx={{ mb: 1 }} fontSize="clamp(1.875rem, 1.3636rem + 2.1818vw, 3rem)" fontWeight="lg" color="primary"  > Video Class.</Typography>
+              <Typography level="h4" sx={{ mb: 3 }}>    손위운 강의 공유 플랫폼. </Typography>
+              <Button size="lg" onClick={() => window.open('/login', '_self')} endDecorator={<KeyboardArrowRight />}>  시작하기</Button>
             </Box>
           </Box>
-
 
           <Box component="footer" sx={{ py: 3 }}>
             <Typography level="body-xs" textAlign="center">
